@@ -1,0 +1,14 @@
+<h1> hi hi </h1>
+<p>  {% for d in date%}
+<span>{{d}}.</span>
+ {% endfor %}</p>
+<p> this question has <span> {{count}} choises </span> </p>
+<h2> <span>{{question.qText}} </span> </h2>
+<ul>
+<form method='post' >
+    {% for ch  in  choices %}
+      <input type="radio" id="{{ch.id}}" name="choises"  value="{{ch.id}}">
+      <label for="vehicle1">  {{ch.chText}}</label><br>
+    {% endfor %}
+  </ul>
+ </form>
