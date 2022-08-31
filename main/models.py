@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class question(models.Model):
     qText= models.CharField(max_length=200)
-    pupDate= models.DateTimeField('date published',default=datetime.now())
+    pupDate= models.DateTimeField('date published',default=datetime.now)
     
     def __str__(self):
         return self.qText
