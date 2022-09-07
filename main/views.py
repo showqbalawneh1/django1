@@ -31,6 +31,8 @@ class questionDetails(generics.RetrieveUpdateDestroyAPIView):
 class choiceList (generics.ListCreateAPIView):
     queryset=choice.objects.all()
     serializer_class=chSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields=('question','votes')
     
 class choiceDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset=choice.objects.all()

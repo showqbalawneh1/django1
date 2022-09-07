@@ -6,10 +6,12 @@ from django_filters import rest_framework as filters
 
 
 class pressureSensorFilter(filters.FilterSet):
-    name = filters.CharFilter(lookup_expr='iexact')
     class Meta:
         model=pressureSensor
-        fields=('labelSensor','installationDate')
+        fields={
+            'labelSensor':['icontains'],
+            'installationDate':['lte']
+        }
 class pressureSensorVS(generics.ListAPIView):
     queryset=pressureSensor.objects.all()
     serializer_class=pressureSensorSer
@@ -17,12 +19,14 @@ class pressureSensorVS(generics.ListAPIView):
     filterset_class=pressureSensorFilter
     
 class sensorReadingFilter(filters.FilterSet):
-    name = filters.CharFilter(lookup_expr='iexact')
+    name = filters.NumberFilter(field_name="value", lookup_expr='lte')
+    name = filters.DateTimeFilter(field_name="readingDate", input_formats=['%Y-%m-%d','%d-%m-%Y'],lookup_expr='icontains')
     class Meta:
         model=sensorReading
-        fields=('value','readingDate')
+        fields=('sensor','readingDate')
 class sensorReadingVS(generics.ListAPIView):
-    queryset=sensorReading.objects.filter(readingDate__range=["2020-01-01", "2020-12-31"])
+   # queryset=sensorReading.objects.filter(readingDate__range=["2020-01-01", "2020-12-31"])
+    queryset=sensorReading.objects.all()
     serializer_class= sensorReadingSer   
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class=sensorReadingFilter
