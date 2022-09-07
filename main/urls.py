@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin 
 from django.urls import path
-from .import views
+from .views import questionList,questionDetails, choiceList, choiceDetails,qChoice
 
 appName="main"
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('question/<id>',views.index,name='main.index'),
+    path('',questionList.as_view(),name='main.qList'),
+    path('<int:pk>',questionDetails.as_view(),name='main.qDetails'),
+    path('choice/',choiceList.as_view(),name='main.chList'),
+    path('choice/id',qChoice.as_view(),name='main.chDetails'),
+    
+
 ]
