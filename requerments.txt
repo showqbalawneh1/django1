@@ -1,7 +1,11 @@
 asgiref==3.2.10
 Django==3.1
-django-tinymce==3.4.0
-django-tinymce4-lite==1.8.0
-jsmin==3.0.1
+django-filter==2.0.0
+django-tinymce==3.5.0
+djangorestframework==3.13.1
+future==0.18.2
+Markdown==3.4.1
+psycopg2==2.9.3
 pytz==2022.2.1
+serializers==0.2.4
 sqlparse==0.4.2
