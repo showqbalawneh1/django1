@@ -20,7 +20,6 @@ def index(request,id):
 class questionList (generics.ListCreateAPIView):
     queryset=question.objects.all()
     serializer_class=qSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields=('qText','pupDate')
 
     
@@ -31,7 +30,6 @@ class questionDetails(generics.RetrieveUpdateDestroyAPIView):
 class choiceList (generics.ListCreateAPIView):
     queryset=choice.objects.all()
     serializer_class=chSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields=('question','votes')
     
 class choiceDetails(generics.RetrieveUpdateDestroyAPIView):

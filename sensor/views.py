@@ -15,7 +15,6 @@ class pressureSensorFilter(filters.FilterSet):
 class pressureSensorVS(generics.ListAPIView):
     queryset=pressureSensor.objects.all()
     serializer_class=pressureSensorSer
-    filter_backends = (filters.DjangoFilterBackend,)
     filterset_class=pressureSensorFilter
     
 class sensorReadingFilter(filters.FilterSet):
@@ -28,7 +27,6 @@ class sensorReadingVS(generics.ListAPIView):
    # queryset=sensorReading.objects.filter(readingDate__range=["2020-01-01", "2020-12-31"])
     queryset=sensorReading.objects.all()
     serializer_class= sensorReadingSer   
-    filter_backends = (filters.DjangoFilterBackend,)
     filterset_class=sensorReadingFilter
     
                     
