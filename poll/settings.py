@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'sensor',
     'tinymce',
     "rest_framework",
-    'django_filters',    
+    'django_filters', 
+    'tags',
 ]
 
 MIDDLEWARE = [

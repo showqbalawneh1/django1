@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import question, choice
+from tags.models import tag
+from django.contrib.contenttypes import admin as adm
 
 # Register your models here.
 
@@ -8,18 +10,23 @@ class choiceInline (admin.TabularInline):
     max_num = 10
     extra = 1
 
-
+class tagInline (adm.GenericTabularInline):
+    model=tag
+    extra=1
+    
+    
 class choiceAdmin(admin.ModelAdmin):
     fields=["chText",
             "votes",
-            "question"
+            "question",
             ]
+    inlines = [tagInline]
 class questionAdmin(admin.ModelAdmin):
     fields=["qText",
             "pupDate",
             ]
     inlines = [
-        choiceInline,
+        choiceInline,tagInline
     ]
     
     
