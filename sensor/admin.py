@@ -22,7 +22,8 @@ class pressureSensorAdmin(admin.ModelAdmin):
 class sensorReadingAdmin(admin.ModelAdmin):
     fields=["sensor",
             "value",
-            "readingDate"
+            "readingDate",
+            "row_value"
             ]
     readonly_fields = ["readingDate",]
     
