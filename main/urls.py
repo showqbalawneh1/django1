@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from .views import questionList,questionDetails, choiceList, choiceDetails,qChoice
 
-appName="main"
+app_names="main"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',questionList.as_view(),name='main.qList'),

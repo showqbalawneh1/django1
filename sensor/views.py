@@ -21,18 +21,29 @@ class reading_calc(APIView):
     def get(self, request , *args , **kwargs ):
         since = datetime.datetime.fromisoformat(kwargs['since'])
         until = datetime.datetime.fromisoformat(kwargs['until'])
-        q=sensorReading.objects.filter(readingDate__range=[since, until])
-        operation= kwargs['calculation']
-        if operation == 'sum':
-            value= q.aggregate(Sum('value'))
-            return Response(value['value__sum'])
-        elif operation == 'avg':
-            value = q.aggregate(Avg('value'))
-            return Response(value['value__avg'])
-        else :
-            return Response('choose avg or sum ')
+        calc= kwargs['calculation']
+        return Response(calculation(since,until,calc))
         
+        
+def calculation (since,until,calc):
+        q=sensorReading.objects.filter(readingDate__range=[since, until])
+        if q.exists() == 0 :
+            return 0
+        if calc == 'sum':
+            value= q.aggregate(Sum('value'))
+            return value['value__sum']
+        elif calc == 'avg':
+            value = q.aggregate(Avg('value'))
+            return value['value__avg']
+        else :
+            return 'choose avg or sum '
+    
 def reading_calc_f(request, *args , **kwargs ):
+        if (kwargs['since']>=kwargs['until']):
+            val=0
+            messages="since > until "
+            return render(request,"main/sensorR.html",{"operation": operation ,"value":val, message:"message"})
+        
         since = datetime.datetime.fromisoformat(kwargs['since'])
         until = datetime.datetime.fromisoformat(kwargs['until'])
         q=sensorReading.objects.filter(readingDate__range=[since, until])
@@ -44,7 +55,8 @@ def reading_calc_f(request, *args , **kwargs ):
             value = q.aggregate(Avg('value'))
             val=value['value__avg']
         else :
-            val=messages.warning(request, 'choose average or summation ')
+            val=0
+     
         return render(request,"main/sensorR.html",{"operation": operation ,"value":val})
     
   
@@ -74,4 +86,6 @@ class sensorReadingVS(generics.ListCreateAPIView):
     filterset_class=sensorReadingFilter
     
 
+def welcome ():
+    return HttpResponse("hi hi")
                     

@@ -25,7 +25,6 @@ class sensorReadingAdmin(admin.ModelAdmin):
             "readingDate",
             "row_value"
             ]
-    readonly_fields = ["readingDate",]
     
 admin.site.register(sensorReading , sensorReadingAdmin )
    

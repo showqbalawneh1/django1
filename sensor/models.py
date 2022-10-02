@@ -25,7 +25,7 @@ class pressureSensor(models.Model):
     
     
 class sensorReading (models.Model):
-    sensor=models.ForeignKey(pressureSensor, on_delete=models.CASCADE,null=False)
-    readingDate=models.DateTimeField(auto_now_add=True,editable=False)
+    sensor=models.ForeignKey(pressureSensor, on_delete=models.SET_NULL ,null=True)
+    readingDate=models.DateTimeField()
     value=models.DecimalField(max_digits=19,decimal_places=10)
     row_value=models.DecimalField(max_digits=19,decimal_places=10,null=True)
