@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib import messages
-
+import logging
 from rest_framework import generics
 from .models import pressureSensor,sensorReading
 from .serializers import pressureSensorSer, sensorReadingSer
@@ -16,12 +16,18 @@ from rest_framework.response import Response
 from django.db.models import Sum,Avg
 import datetime
 
+logging.basicConfig(filename ='demo.log',level = logging.DEBUG)
+logging.disable()
+
+ 
+ 
     # returns {'value__sum': (800)} for 
 class reading_calc(APIView):
     def get(self, request , *args , **kwargs ):
         since = datetime.datetime.fromisoformat(kwargs['since'])
         until = datetime.datetime.fromisoformat(kwargs['until'])
         calc= kwargs['calculation']
+        logging.debug(calc)
         return Response(calculation(since,until,calc))
         
         
@@ -36,6 +42,7 @@ def calculation (since,until,calc):
             value = q.aggregate(Avg('value'))
             return value['value__avg']
         else :
+            logging.debug("choose sum or sum ")
             return 'choose avg or sum '
     
 def reading_calc_f(request, *args , **kwargs ):
@@ -56,7 +63,6 @@ def reading_calc_f(request, *args , **kwargs ):
             val=value['value__avg']
         else :
             val=0
-     
         return render(request,"main/sensorR.html",{"operation": operation ,"value":val})
     
   

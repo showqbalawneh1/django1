@@ -8,7 +8,8 @@ from decimal import Decimal
 
 since = datetime.fromisoformat('2022-09-01')
 until = datetime.fromisoformat('2022-09-09')
-
+since = datetime.fromisoformat('2022-09-01')
+until = datetime.fromisoformat('2022-09-09')
 
 class TestUrls(TestCase): 
     def setUp(self):
@@ -23,7 +24,7 @@ class TestUrls(TestCase):
         # self.assertEqual(len(args), 3 )
         if  len(args)== 3:
             url=reverse('sensor.sensorRf', args)
-        else : print ("failed you need three parameter")
+        else : print("failed you need three parameter")
     
     
 
