@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'sensor',
     'tinymce',
-    "rest_framework",
+    'rest_framework',
     'django_filters', 
     'tags',
+    'drf_api_logger',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'sensor.middleware.FirstMiddleware',
+    'drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware'
   
 
 ]
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'poll.wsgi.application'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ),
 }
 
@@ -137,4 +139,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+DRF_API_LOGGER_DATABASE = True

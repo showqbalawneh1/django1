@@ -1,4 +1,4 @@
-ERROR:django.request:Internal Server Error: /choice/
+ERROR:django.request:Internal Server Error: /
 Traceback (most recent call last):
   File "/Users/apple/Documents/flowless/poll/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
     response = get_response(request)
@@ -23,5 +23,9 @@ Traceback (most recent call last):
   File "/Users/apple/Documents/flowless/poll/lib/python3.10/site-packages/rest_framework/generics.py", line 150, in filter_queryset
     queryset = backend().filter_queryset(self.request, queryset, self)
 AttributeError: 'IsAuthenticated' object has no attribute 'filter_queryset'
-INFO:django.utils.autoreload:/Users/apple/Documents/flowless/poll/poll/main/views.py changed, reloading.
+INFO:django.utils.autoreload:/Users/apple/Documents/flowless/poll/poll/poll/urls.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+DEBUG:MARKDOWN:Successfully imported extension module "markdown.extensions.toc".
+DEBUG:MARKDOWN:Successfully loaded extension "markdown.extensions.toc.TocExtension".
+INFO:django.utils.autoreload:/Users/apple/Documents/flowless/poll/poll/sensor/views.py changed, reloading.
 DEBUG:asyncio:Using selector: KqueueSelector

@@ -8,6 +8,11 @@ from rest_framework import generics
 from .serializers import qSerializer ,chSerializer
 from django_filters import rest_framework as filters
 
+
+#import logging
+
+
+#logging.basicConfig(filename ='main/demo.log',level = logging.DEBUG)
 # Create your views here.
 def index(request,id):
     q=question.objects.get(id=id).pupDate
