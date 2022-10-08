@@ -16,7 +16,15 @@ from rest_framework.response import Response
 
 from django.db.models import Sum,Avg
 import datetime
-log = logging.getLogger(__name__)
+import logging
+
+
+# log = logging.getLogger(__name__)
+# file_handler = logging.File_Handler('demo.log')
+# log.addHandler(file_handler)
+
+logging.basicConfig(filename ='main/demo.log',level = logging.DEBUG)
+# Create your views here.
 
 count = count1 = 0
 

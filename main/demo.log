@@ -25,3 +25,9 @@ Traceback (most recent call last):
 AttributeError: 'IsAuthenticated' object has no attribute 'filter_queryset'
 INFO:django.utils.autoreload:/Users/apple/Documents/flowless/poll/poll/main/views.py changed, reloading.
 DEBUG:asyncio:Using selector: KqueueSelector
+INFO:django.utils.autoreload:/Users/apple/Documents/flowless/poll/poll/sensor/views.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:django.utils.autoreload:/Users/apple/Documents/flowless/poll/poll/sensor/views.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:django.utils.autoreload:/Users/apple/Documents/flowless/poll/poll/poll/settings.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector

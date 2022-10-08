@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django_filters', 
     'tags',
     'drf_api_logger',
+    'blog',
+    'django_seed',
 ]
 
 MIDDLEWARE = [
@@ -138,5 +140,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+		# Print any Warning logs to the console
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+			  # Print all database queries to the console
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
+
 
 DRF_API_LOGGER_DATABASE = True

@@ -1,0 +1,16 @@
+[
+    {
+      "model": "blog.Author",
+      "pk": 1,
+      "fields": {
+        "name": "ahmad"
+      }
+    },
+    {
+      "model": "blog.Author",
+      "pk": 2,
+      "fields": {
+        "name": "khaled"
+      }
+    }
+  ]
