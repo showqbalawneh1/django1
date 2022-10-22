@@ -12,7 +12,7 @@ class pressureSensorAdmin(admin.ModelAdmin):
     
 class sensorReadingAdmin(admin.ModelAdmin):
     fields=["sensor",
-            "value"
+            "value",
             ]
     
 admin.site.register(sensorReading , sensorReadingAdmin )

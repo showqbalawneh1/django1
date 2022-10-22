@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime 
+import django_filters
+
 
 
 # Create your models here.
@@ -17,4 +19,5 @@ class sensorReading (models.Model):
     sensor=models.ForeignKey(pressureSensor, on_delete=models.CASCADE,null=False)
     readingDate=models.DateTimeField(auto_now_add=True)
     value=models.DecimalField(max_digits=19,decimal_places=10)
+ 
  

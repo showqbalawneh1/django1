@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'sensor',
     'tinymce',
-    "rest_framework"
-    
+    "rest_framework",
+    'django_filters',    
 ]
 
 MIDDLEWARE = [
@@ -74,6 +74,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'poll.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -127,3 +132,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
