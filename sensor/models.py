@@ -11,7 +11,7 @@ class pressureSensor(models.Model):
     def validation(labelSensor):
         str = [*labelSensor]
         if("PSSR" not in labelSensor[0:4]):
-            raise ValidationError(('labelSensor not valid should has a PSSR prefix '))
+            raise ValidationError('labelSensor not valid should has a PSSR prefix ')
 
     labelSensor =models.CharField(max_length=200,validators=[validation])
     installationDate=models.DateTimeField(auto_now_add=True)
