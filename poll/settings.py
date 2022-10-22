@@ -86,7 +86,7 @@ REST_FRAMEWORK = {
 DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
+        'NAME': 'flowless',
         'USER': 'postgres',
         'PASSWORD': 'password',
         'HOST': 'localhost',

@@ -13,7 +13,7 @@ class question(models.Model):
     
     def publishedRecently(self):
         return self.pupDate.month >=datetime.now().month
-    
+
     
 class choice (models.Model):
     chText=models.CharField(max_length=100)
